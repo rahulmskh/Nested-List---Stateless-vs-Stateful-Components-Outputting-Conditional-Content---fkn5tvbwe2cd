@@ -10,10 +10,13 @@ export default function States(props) {
   return (
     <ul>
       <li>
-        <div onClick={setActiveStatus}>{props.stateName}</div>
+        <div id={props.stateId} onClick={setActiveStatus}>
+          {props.stateName}
+        </div>
         {visibility &&
-          props.citiesNames.map((element) => (
+          props.citiesNames.map((element, index) => (
             <Cities
+              cityId={`city${index + 1}`}
               key={element.name + Math.random()}
               cityName={element.name}
               townsNames={element.towns}

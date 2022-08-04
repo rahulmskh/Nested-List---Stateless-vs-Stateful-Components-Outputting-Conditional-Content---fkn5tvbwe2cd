@@ -10,10 +10,16 @@ export default function Cities(props) {
   return (
     <ul>
       <li>
-        <div onClick={setActiveStatus}>{props.cityName}</div>
+        <div id={props.cityId} onClick={setActiveStatus}>
+          {props.cityName}
+        </div>
         {visibility &&
-          props.townsNames.map((element) => (
-            <Towns key={element.name + Math.random()} townName={element.name} />
+          props.townsNames.map((element, index) => (
+            <Towns
+              townId={`town${index + 1}`}
+              key={element.name + Math.random()}
+              townName={element.name}
+            />
           ))}
       </li>
     </ul>

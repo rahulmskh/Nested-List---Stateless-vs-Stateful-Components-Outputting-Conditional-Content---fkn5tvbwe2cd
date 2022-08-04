@@ -157,15 +157,16 @@ const states = [
 
 function App() {
   return (
-    <li id="main">
-      {states.map((element) => (
+    <div id="main">
+      {states.map((element, index) => (
         <States
+          stateId={`state${index + 1}`}
           key={element.name + Math.random()}
           stateName={element.name}
           citiesNames={element.cities}
         />
       ))}
-    </li>
+    </div>
   );
 }
 
